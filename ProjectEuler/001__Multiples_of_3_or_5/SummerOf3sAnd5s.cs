@@ -4,7 +4,21 @@
     {
         public int FindSumBelowExcluding(int upperLimit)
         {
-            return 23;
+            int sum = 0;
+            if (upperLimit < 4)
+            {
+                return -1;
+            }
+            else
+            {
+                for (int i = 3; i < upperLimit; i++)
+                {
+                    if (i % 3 == 0 || i % 5 == 0)
+                        sum += i;
+                }
+            }
+
+            return sum;
         }
     }
 }
