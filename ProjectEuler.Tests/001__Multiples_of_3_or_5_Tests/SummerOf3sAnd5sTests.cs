@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 using ProjectEuler._001__Multiples_of_3_or_5;
 
@@ -8,72 +9,56 @@ namespace ProjectEuler.Tests._001__Multiples_of_3_or_5_Tests
     public class SummerOf3sAnd5sTests
     {
         //The class being tested:
-        SummerOf3sAnd5s _beingTested;
+        SummerOf3sAnd5s _underTest;
 
         [SetUp]
         public void SetUp()
         {
-            _beingTested = new SummerOf3sAnd5s();
+            _underTest = new SummerOf3sAnd5s();
         }
 
         [Test]
-        public void Test01()
+        public void _00__ProjectEulerExample() 
+            // test methods cannot have parameters (unless TestCase attributes are used)
         {
             // arrange (could get pretty big)
+            int upperLimit = 10;
+            int result = 23;
 
             // act (should be a single line or call)
-            int a = _beingTested.FindSumBelowExcluding(10);
+            int a = _underTest.FindSumBelowExcluding(upperLimit);
 
             // assert
-            a.Should().Be(23);
+            a.Should().Be(result);
         }
 
-        [Test]
-        public void Test02()
+        [TestCase(12, ExpectedResult = 33)]
+        [TestCase(4, ExpectedResult = 3)]
+        public int _01__SelfExamples(int upperLimit)
         {
             // arrange 
+            // test cases are arranged above
 
             // act 
-            int a = _beingTested.FindSumBelowExcluding(12);
+            int a = _underTest.FindSumBelowExcluding(upperLimit);
 
             // assert
-            a.Should().Be(33);
+            return a;
         }
 
-        [Test]
-        public void Test03()
+        [TestCase(2)]
+        [TestCase(-10)]
+        public void _02__AOORExceptions(int upperLimit)
         {
             // arrange 
+            // test cases are arranged above
 
             // act 
-            int a = _beingTested.FindSumBelowExcluding(4);
+            Action action = () => _underTest.FindSumBelowExcluding(upperLimit);
 
-            // assert
-            a.Should().Be(3);
+            // assert 
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
-        [Test]
-        public void Test04()
-        {
-            // arrange 
-
-            // act 
-            int a = _beingTested.FindSumBelowExcluding(2);
-
-            // assert
-            a.Should().Be(-1);
-        }
-
-        [Test]
-        public void Test05()
-        {
-            // arrange 
-
-            // act 
-            int a = _beingTested.FindSumBelowExcluding(-10);
-
-            // assert
-            a.Should().Be(-1);
-        }
     }
 }

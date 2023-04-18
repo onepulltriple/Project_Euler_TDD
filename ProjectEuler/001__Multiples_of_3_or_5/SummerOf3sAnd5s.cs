@@ -7,7 +7,10 @@
             int sum = 0;
             if (upperLimit < 4)
             {
-                return -1;
+                throw new ArgumentOutOfRangeException(
+                    nameof(upperLimit),
+                    actualValue: upperLimit, 
+                    $"The whole numbers less than {upperLimit} do not contain any positive mulitples of 3 or 5. Choose a whole number greater than or equal to 4.");
             }
             else
             {

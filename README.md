@@ -1,6 +1,6 @@
-# Project Euler - Test-Driven Development
+# Project Euler and Test-Driven Development using C#
 
-A C# repository containing a series of programming solutions to the mathematical problems found at
+This C# repository contains a series of programming solutions to the mathematical problems found at:
 https://projecteuler.net/archives
 
 The purpose of creating this repository is to practice test-driven development in Visual Studio 2022 (VS2022).
