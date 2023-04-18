@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 using ProjectEuler._001__Multiples_of_3_or_5;
 
@@ -33,7 +32,7 @@ namespace ProjectEuler.Tests._001__Multiples_of_3_or_5_Tests
         }
 
         [TestCase(12, ExpectedResult = 33)]
-        [TestCase(4, ExpectedResult = 3)]
+        [TestCase( 4, ExpectedResult =  3)]
         public int _01__SelfExamples(int upperLimit)
         {
             // arrange 

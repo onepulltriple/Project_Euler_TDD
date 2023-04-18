@@ -10,7 +10,7 @@
                 throw new ArgumentOutOfRangeException(
                     nameof(upperLimit),
                     actualValue: upperLimit, 
-                    $"The whole numbers less than {upperLimit} do not contain any positive mulitples of 3 or 5. Choose a whole number greater than or equal to 4.");
+                    $"The whole numbers less than {upperLimit} do not contain any positive multiples of 3 or 5. Input a whole number greater than or equal to 4.");
             }
             else
             {
