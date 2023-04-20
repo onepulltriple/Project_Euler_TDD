@@ -28,6 +28,36 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
 
             // assert
             a.Should().Be(largestPrimeFactor);
+        }
+
+        [Test]
+        public void _01__SelfExamples()
+        {
+            // sort of "end-to-end"
+        }
+
+        [Test]
+        public void _02__AOORExceptions()
+        {
+
+        }
+
+        [TestCase(   2,  2, ExpectedResult = 1)]
+        [TestCase( 128,  2, ExpectedResult = 1)]
+        [TestCase(  81,  3, ExpectedResult = 1)]
+        [TestCase( 125,  5, ExpectedResult = 1)]
+        [TestCase(  13, 13, ExpectedResult = 1)]
+        [TestCase(2197, 13, ExpectedResult = 1)]
+        public int _03__CheckFactorExtractorForPowersOfPrimes(int inputNumber, int factorToFactorOut)
+        {
+            // arrange
+            // test cases are arranged above
+
+            // act
+            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+
+            // assert
+            return a;
 
 
         }

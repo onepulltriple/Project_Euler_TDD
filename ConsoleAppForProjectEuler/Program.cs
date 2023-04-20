@@ -1,5 +1,6 @@
 ﻿using ProjectEuler._001__Multiples_of_3_or_5;
 using ProjectEuler._002__Even_Fibonacci_numbers;
+using ProjectEuler._003__Largest_prime_factor;
 
 namespace ConsoleAppForProjectEuler
 {
@@ -8,7 +9,8 @@ namespace ConsoleAppForProjectEuler
         static void Main(string[] args)
         {
             // Problem001();
-            Problem002();
+            // Problem002();
+            Problem003();
         }
 
         //////////////////////////////////////////////////////////////////////
@@ -28,6 +30,11 @@ namespace ConsoleAppForProjectEuler
             Console.WriteLine();
             // Answered correctly 2023.04.18
             // Answer = 4613732
+        }
+
+        private static void Problem003()
+        {
+            int a = new LargestPrimeFactorFinder().FactorExtractor(42,2);
         }
     }
 }
