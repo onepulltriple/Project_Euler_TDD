@@ -34,7 +34,12 @@ namespace ConsoleAppForProjectEuler
 
         private static void Problem003()
         {
-            int a = new LargestPrimeFactorFinder().FactorExtractor(42,2);
+            //int number = 215656441;
+            int number = 137;
+            //int number = 600851475143;
+            var a = new LargestPrimeFactorFinder();
+            a.FindLargestPrimeFactor(number);
+            a.PrintPrimeFactorsList(number);
         }
     }
 }

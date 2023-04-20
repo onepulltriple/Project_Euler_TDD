@@ -20,11 +20,11 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         public void _00__ProjectEulerExampleTest()
         {
             // arrange
-            int compositeNumber = 13195;
+            int numberInQuestion = 13195;
             int largestPrimeFactor = 29;
 
             // act
-            int a = _underTest.FindLargestPrimeFactor(compositeNumber);
+            int a = _underTest.FindLargestPrimeFactor(numberInQuestion);
 
             // assert
             a.Should().Be(largestPrimeFactor);
