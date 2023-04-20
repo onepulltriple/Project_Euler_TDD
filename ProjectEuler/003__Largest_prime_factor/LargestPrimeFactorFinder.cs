@@ -14,15 +14,44 @@
                 //throw exception 
             }
 
-            int numberInQuestion = compositeNumber; 
+            int numberInQuestion = compositeNumber;
+            int outputNumber;
 
 
             // apply the Sieve of Eratosthenes
 
             // check 2, 3, and 5 on on their own
-            numberInQuestion = FactorExtractor(numberInQuestion, 2); 
-            numberInQuestion = FactorExtractor(numberInQuestion, 3); 
-            numberInQuestion = FactorExtractor(numberInQuestion, 5); 
+            for (int i = 2; i <= 5; i++)
+            {
+                if (i == 4)
+                    continue; // skips 4
+
+                outputNumber = FactorExtractor(numberInQuestion, i);
+
+                if (outputNumber == 1)
+                {
+                    ListOfPrimes.Add(i);
+                    break;
+                }
+                if (outputNumber != numberInQuestion)
+                    ListOfPrimes.Add(i);
+            }
+
+            //numberInQuestion = FactorExtractor(numberInQuestion, 2); 
+            // if output number was 1, record 2 and stop
+            // if output number is different from input number, record 2 and go on
+            // if output number is unchanged, 2 was not a factor, so go on
+
+            //numberInQuestion = FactorExtractor(numberInQuestion, 3);
+            // if output number was 1, record 3 and stop
+            // if output number is different from input number, record 3 and go on
+            // if output number is unchanged, 3 was not a factor, so go on
+
+            //numberInQuestion = FactorExtractor(numberInQuestion, 5);
+            // if output number was 1, record 5 and stop
+            // if output number is different from input number, record 5 and go on
+            // if output number is unchanged, 5 was not a factor, so go on
+
 
             // loop over the remaining integers 
             // increment by 2 and 4, alternating
@@ -68,10 +97,6 @@
 
         public int FactorExtractor(int inputNumber, int factorToFactorOut)
         {
-            // 2, 2
-            // 32, 2
-            // 37,2
-
             int outputNumber = inputNumber;
 
             while (inputNumber % factorToFactorOut == 0)
@@ -82,7 +107,6 @@
     
             return outputNumber;
             // 1 means the factor was the only prime factor (e.g. 32, 2 yields 1)
-            // or it means the number was itself prime
 
         }
     }

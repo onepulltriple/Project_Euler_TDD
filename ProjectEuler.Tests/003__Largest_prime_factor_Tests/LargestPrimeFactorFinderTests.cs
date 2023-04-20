@@ -42,13 +42,11 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
 
         }
 
-        [TestCase(   2,  2, ExpectedResult = 1)]
-        [TestCase( 128,  2, ExpectedResult = 1)]
-        [TestCase(  81,  3, ExpectedResult = 1)]
-        [TestCase( 125,  5, ExpectedResult = 1)]
-        [TestCase(  13, 13, ExpectedResult = 1)]
-        [TestCase(2197, 13, ExpectedResult = 1)]
-        public int _03__CheckFactorExtractorForPowersOfPrimes(int inputNumber, int factorToFactorOut)
+        [TestCase(5, 2, ExpectedResult = 5)]
+        [TestCase(37, 3, ExpectedResult = 37)]
+        [TestCase(137, 3, ExpectedResult = 137)]
+        [TestCase(2281, 3, ExpectedResult = 2281)]
+        public int _03__CheckFactorExtractorForPrimes(int inputNumber, int factorToFactorOut)
         {
             // arrange
             // test cases are arranged above
@@ -58,8 +56,56 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
 
             // assert
             return a;
+        }
 
+        [TestCase(2, 2, ExpectedResult = 1)]
+        [TestCase(128, 2, ExpectedResult = 1)]
+        [TestCase(81, 3, ExpectedResult = 1)]
+        [TestCase(125, 5, ExpectedResult = 1)]
+        [TestCase(13, 13, ExpectedResult = 1)]
+        [TestCase(2197, 13, ExpectedResult = 1)]
+        public int _04__CheckFactorExtractorForPowersOfPrimes(int inputNumber, int factorToFactorOut)
+        {
+            // arrange
+            // test cases are arranged above
 
+            // act
+            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+
+            // assert
+            return a;
+        }
+
+        [TestCase(42, 2, ExpectedResult = 21)]
+        [TestCase(462, 2, ExpectedResult = 231)]
+        [TestCase(231, 3, ExpectedResult = 77)]
+        [TestCase(77, 7, ExpectedResult = 11)]
+        public int _05__CheckFactorExtractorForIncompleteFactorization(int inputNumber, int factorToFactorOut)
+        {
+            // arrange
+            // test cases are arranged above
+
+            // act
+            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+
+            // assert
+            return a;
+        }
+
+        [TestCase(33, 2, ExpectedResult = 33)]
+        [TestCase(77, 5, ExpectedResult = 77)]
+        [TestCase(125, 3, ExpectedResult = 125)]
+        [TestCase(1000, 7, ExpectedResult = 1000)]
+        public int _06__CheckFactorExtractorForNoFactorization(int inputNumber, int factorToFactorOut)
+        {
+            // arrange
+            // test cases are arranged above
+
+            // act
+            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+
+            // assert
+            return a;
         }
     }
 }
