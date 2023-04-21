@@ -1,4 +1,6 @@
-﻿namespace ProjectEuler._003__Largest_prime_factor
+﻿using System.Net.Http.Headers;
+
+namespace ProjectEuler._003__Largest_prime_factor
 {
     public class LargestPrimeFactorFinder
     {
@@ -7,48 +9,39 @@
 
         public ulong FindLargestPrimeFactor(ulong numberInQuestion)
         {
-            // apply the Sieve of Eratosthenes
+            FindPrimeFactors(numberInQuestion);
+            return ListOfPrimes.Last();
+        }
+
+        public List<ulong> FindPrimeFactors(ulong numberInQuestion)
+        {
             ulong outputNumber;
 
             if (numberInQuestion <= 1)
             {
-                //throw exception 
+                throw new ArgumentOutOfRangeException(
+                    nameof(numberInQuestion),
+                    actualValue: numberInQuestion,
+                    $"Whole numbers less than 1 do not contain any positive prime numbers. Input a whole number greater than or equal to 2.");
             }
 
-            // check 2, 3, and 5 on on their own
-            for (ulong i = 2; i <= 5; i++)
-            {
-                if (i == 4)
-                    continue; // skips 4
-
-                outputNumber = FactorExtractor(numberInQuestion, i);
-
-                if (outputNumber == 1)
-                {
-                    ListOfPrimes.Add(i);
-                    return ListOfPrimes.Last();
-                }
-                if (outputNumber != numberInQuestion)
-                    ListOfPrimes.Add(i);
-
-                numberInQuestion = outputNumber;
-            }
-
-
-            // loop over the remaining integers 
+            // apply the Sieve of Eratosthenes
+            // loop over the prime integers 
             // increment by 2 and 4, alternating
             ulong j = 2;
-            for (ulong i = 7; i <= numberInQuestion; i+=j)
+            for (ulong i = 2; i < numberInQuestion; i+=j)
             {
-                if (numberInQuestion % 5 == 0)
-                    continue; // skips multiples of 5
+                if (i % 5 == 0 && i > 5)
+                    continue; // skips multiples of 5, but not 5 itself
 
                 outputNumber = FactorExtractor(numberInQuestion, i);
 
                 if (outputNumber == 1)
                 {
                     ListOfPrimes.Add(i);
-                    return ListOfPrimes.Last();
+                    return ListOfPrimes;
+                    // if the resulting output number is 1,
+                    // then greatest prime factor has been found
                 }
                 if (outputNumber != numberInQuestion)
                     ListOfPrimes.Add(i);
@@ -60,14 +53,24 @@
                 else
                     j = 2;
 
+                // corrects 'i' as needed, so that 2, 3, and 5 are examined
+                switch (i)
+                {
+                    case 2:
+                        j = 1;
+                        break;
+                    case 3:
+                        j = 2;
+                        break;
+                    case 5:
+                        j = 2;
+                        break;
+                }
             }
 
-            // since resulting number is 1, we should know that we are done
-
-            // if list of int is empty, we started with a prime number
+            // if ListOfPrimes is still empty, then we started with a prime number
             ListOfPrimes.Add(numberInQuestion);
-            return ListOfPrimes.Last(); ;
-
+            return ListOfPrimes; 
         }
 
         public ulong FactorExtractor(ulong inputNumber, ulong factorToFactorOut)
@@ -81,9 +84,6 @@
             }
     
             return outputNumber;
-            // 1 means the factor was the only prime factor
-            // e.g. (32, 2) yields an ouput number of 1
-
         }
 
         public void PrintPrimeFactorsList(ulong number)

@@ -39,6 +39,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         [TestCase(2281, ExpectedResult = 2281)]
         [TestCase(215656441, ExpectedResult = 29)]
         [TestCase(479010, ExpectedResult = 2281)]
+        [TestCase(14804790, ExpectedResult = 29)]
         public int _01__SelfExamples(int inputNumber)
         {
             // arrange
@@ -52,10 +53,19 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             return (int)a;
         }
 
-        [Test]
-        public void _02__AOORExceptions()
+        [TestCase(1)]
+        [TestCase(0)]
+        public void _02__AOORExceptions(int inputNumber)
         {
+            // arrange
+            // test cases are arranged above
+            ulong inputNumberUL = (ulong)inputNumber;
 
+            // act
+            Action action = () => _underTest.FindLargestPrimeFactor(inputNumberUL);
+
+            // assert
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [TestCase(5, 2, ExpectedResult = 5)]

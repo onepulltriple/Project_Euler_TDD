@@ -34,11 +34,13 @@ namespace ConsoleAppForProjectEuler
 
         private static void Problem003()
         {
-            //ulong number = 600851475143;
-            ulong number = 479010;
+            ulong numberInQuestion = 600851475143;
+            //ulong numberInQuestion = 14804790;
+
             var a = new LargestPrimeFactorFinder();
-            a.FindLargestPrimeFactor(number);
-            a.PrintPrimeFactorsList(number);
+            ulong b = a.FindLargestPrimeFactor(numberInQuestion);
+            Console.WriteLine($"The largest prime factor for {numberInQuestion} is {b}.\n");
+            a.PrintPrimeFactorsList(numberInQuestion);
             // Answered correctly 2023.04.21
             // Answer = 6857
         }
