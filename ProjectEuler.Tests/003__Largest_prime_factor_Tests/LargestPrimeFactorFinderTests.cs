@@ -20,20 +20,36 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         public void _00__ProjectEulerExampleTest()
         {
             // arrange
-            int numberInQuestion = 13195;
-            int largestPrimeFactor = 29;
+            ulong numberInQuestion = 13195;
+            ulong largestPrimeFactor = 29;
 
             // act
-            int a = _underTest.FindLargestPrimeFactor(numberInQuestion);
+            ulong a = _underTest.FindLargestPrimeFactor(numberInQuestion);
 
             // assert
             a.Should().Be(largestPrimeFactor);
         }
 
-        [Test]
-        public void _01__SelfExamples()
+        [TestCase(2, ExpectedResult = 2)]
+        [TestCase(3, ExpectedResult = 3)]
+        [TestCase(5, ExpectedResult = 5)]
+        [TestCase(7, ExpectedResult = 7)]
+        [TestCase(125, ExpectedResult = 5)]
+        [TestCase(137, ExpectedResult = 137)]
+        [TestCase(2281, ExpectedResult = 2281)]
+        [TestCase(215656441, ExpectedResult = 29)]
+        [TestCase(479010, ExpectedResult = 2281)]
+        public int _01__SelfExamples(int inputNumber)
         {
-            // sort of "end-to-end"
+            // arrange
+            // test cases are arranged above
+            ulong inputNumberUL = (ulong)inputNumber;
+
+            // act
+            ulong a = _underTest.FindLargestPrimeFactor(inputNumberUL);
+
+            // assert
+            return (int)a;
         }
 
         [Test]
@@ -50,12 +66,14 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         {
             // arrange
             // test cases are arranged above
+            ulong inputNumberUL = (ulong)inputNumber;
+            ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
 
             // assert
-            return a;
+            return (int)a;
         }
 
         [TestCase(2, 2, ExpectedResult = 1)]
@@ -68,12 +86,14 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         {
             // arrange
             // test cases are arranged above
+            ulong inputNumberUL = (ulong)inputNumber;
+            ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
 
             // assert
-            return a;
+            return (int)a;
         }
 
         [TestCase(42, 2, ExpectedResult = 21)]
@@ -84,12 +104,14 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         {
             // arrange
             // test cases are arranged above
+            ulong inputNumberUL = (ulong)inputNumber;
+            ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
 
             // assert
-            return a;
+            return (int)a;
         }
 
         [TestCase(33, 2, ExpectedResult = 33)]
@@ -100,12 +122,14 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
         {
             // arrange
             // test cases are arranged above
+            ulong inputNumberUL = (ulong)inputNumber;
+            ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            int a = _underTest.FactorExtractor(inputNumber, factorToFactorOut);
+            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
 
             // assert
-            return a;
+            return (int)a;
         }
     }
 }

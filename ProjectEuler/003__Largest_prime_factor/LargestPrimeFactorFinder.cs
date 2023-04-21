@@ -3,12 +3,12 @@
     public class LargestPrimeFactorFinder
     {
         // list to hold prime numbers up to and possibly including the input number
-        public List<int> ListOfPrimes { get; set; } = new List<int>();
+        public List<ulong> ListOfPrimes { get; set; } = new List<ulong>();
 
-        public int FindLargestPrimeFactor(int numberInQuestion)
+        public ulong FindLargestPrimeFactor(ulong numberInQuestion)
         {
             // apply the Sieve of Eratosthenes
-            int outputNumber;
+            ulong outputNumber;
 
             if (numberInQuestion <= 1)
             {
@@ -16,7 +16,7 @@
             }
 
             // check 2, 3, and 5 on on their own
-            for (int i = 2; i <= 5; i++)
+            for (ulong i = 2; i <= 5; i++)
             {
                 if (i == 4)
                     continue; // skips 4
@@ -37,8 +37,8 @@
 
             // loop over the remaining integers 
             // increment by 2 and 4, alternating
-            int j = 2;
-            for (int i = 7; i <= numberInQuestion; i+=j)
+            ulong j = 2;
+            for (ulong i = 7; i <= numberInQuestion; i+=j)
             {
                 if (numberInQuestion % 5 == 0)
                     continue; // skips multiples of 5
@@ -70,9 +70,9 @@
 
         }
 
-        public int FactorExtractor(int inputNumber, int factorToFactorOut)
+        public ulong FactorExtractor(ulong inputNumber, ulong factorToFactorOut)
         {
-            int outputNumber = inputNumber;
+            ulong outputNumber = inputNumber;
 
             while (inputNumber % factorToFactorOut == 0)
             {
@@ -86,12 +86,16 @@
 
         }
 
-        public void PrintPrimeFactorsList(int number)
+        public void PrintPrimeFactorsList(ulong number)
         {
+            int count = ListOfPrimes.Count;
             Console.WriteLine($"The list of prime factors for {number} is:");
-            foreach (int primeNumber in ListOfPrimes)
+            foreach (ulong primeNumber in ListOfPrimes)
             {
-                Console.Write($"{primeNumber}, ");
+                if (--count > 0)
+                    Console.Write($"{primeNumber}, ");
+                else
+                    Console.Write($"{primeNumber}");
             }
             Console.WriteLine();
         }

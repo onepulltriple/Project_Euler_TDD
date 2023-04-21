@@ -34,12 +34,13 @@ namespace ConsoleAppForProjectEuler
 
         private static void Problem003()
         {
-            //int number = 215656441;
-            int number = 137;
-            //int number = 600851475143;
+            //ulong number = 600851475143;
+            ulong number = 479010;
             var a = new LargestPrimeFactorFinder();
             a.FindLargestPrimeFactor(number);
             a.PrintPrimeFactorsList(number);
+            // Answered correctly 2023.04.21
+            // Answer = 6857
         }
     }
 }
