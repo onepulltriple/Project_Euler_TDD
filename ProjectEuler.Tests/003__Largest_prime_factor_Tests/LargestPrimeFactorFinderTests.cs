@@ -80,7 +80,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
+            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;
@@ -100,7 +100,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
+            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;
@@ -118,7 +118,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
+            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;
@@ -136,7 +136,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.FactorExtractor(inputNumberUL, factorToFactorOutUL);
+            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;

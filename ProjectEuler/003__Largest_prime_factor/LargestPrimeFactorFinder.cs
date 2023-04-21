@@ -34,7 +34,7 @@ namespace ProjectEuler._003__Largest_prime_factor
                 if (i % 5 == 0 && i > 5)
                     continue; // skips multiples of 5, but not 5 itself
 
-                outputNumber = FactorExtractor(numberInQuestion, i);
+                outputNumber = ExtractFactor(numberInQuestion, i);
 
                 if (outputNumber == 1)
                 {
@@ -73,7 +73,7 @@ namespace ProjectEuler._003__Largest_prime_factor
             return ListOfPrimes; 
         }
 
-        public ulong FactorExtractor(ulong inputNumber, ulong factorToFactorOut)
+        public ulong ExtractFactor(ulong inputNumber, ulong factorToFactorOut)
         {
             ulong outputNumber = inputNumber;
 
