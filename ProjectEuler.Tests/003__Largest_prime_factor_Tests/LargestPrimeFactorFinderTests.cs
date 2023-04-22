@@ -7,13 +7,10 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
     [TestFixture]
     public class LargestPrimeFactorFinderTests
     {
-        // The class being tested.
-        LargestPrimeFactorFinder _underTest;
-
         [SetUp]
         public void SetUp()
         {
-            _underTest = new();
+            // not needed
         }
 
         [Test]
@@ -24,7 +21,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong largestPrimeFactor = 29;
 
             // act
-            ulong a = _underTest.FindLargestPrimeFactor(numberInQuestion);
+            ulong a = LargestPrimeFactorFinder.FindLargestPrimeFactor(numberInQuestion);
 
             // assert
             a.Should().Be(largestPrimeFactor);
@@ -47,7 +44,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong inputNumberUL = (ulong)inputNumber;
 
             // act
-            ulong a = _underTest.FindLargestPrimeFactor(inputNumberUL);
+            ulong a = LargestPrimeFactorFinder.FindLargestPrimeFactor(inputNumberUL);
 
             // assert
             return (int)a;
@@ -62,7 +59,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong inputNumberUL = (ulong)inputNumber;
 
             // act
-            Action action = () => _underTest.FindLargestPrimeFactor(inputNumberUL);
+            Action action = () => LargestPrimeFactorFinder.FindLargestPrimeFactor(inputNumberUL);
 
             // assert
             action.Should().Throw<ArgumentOutOfRangeException>();
@@ -80,7 +77,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
+            ulong a = LargestPrimeFactorFinder.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;
@@ -100,7 +97,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
+            ulong a = LargestPrimeFactorFinder.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;
@@ -118,7 +115,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
+            ulong a = LargestPrimeFactorFinder.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;
@@ -136,7 +133,7 @@ namespace ProjectEuler.Tests._003__Largest_prime_factor_Tests
             ulong factorToFactorOutUL = (ulong)factorToFactorOut;
 
             // act
-            ulong a = _underTest.ExtractFactor(inputNumberUL, factorToFactorOutUL);
+            ulong a = LargestPrimeFactorFinder.ExtractFactor(inputNumberUL, factorToFactorOutUL);
 
             // assert
             return (int)a;

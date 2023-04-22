@@ -37,10 +37,8 @@ namespace ConsoleAppForProjectEuler
             ulong numberInQuestion = 600851475143;
             //ulong numberInQuestion = 14804790;
 
-            var a = new LargestPrimeFactorFinder();
-            ulong b = a.FindLargestPrimeFactor(numberInQuestion);
-            Console.WriteLine($"The largest prime factor for {numberInQuestion} is {b}.\n");
-            a.PrintPrimeFactorsList(numberInQuestion);
+            LargestPrimeFactorFinder.PrintLargestPrimeFactor(numberInQuestion);
+            LargestPrimeFactorFinder.PrintPrimeFactorsList(numberInQuestion);
             // Answered correctly 2023.04.21
             // Answer = 6857
         }

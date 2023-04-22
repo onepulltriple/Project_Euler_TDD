@@ -4,17 +4,17 @@ namespace ProjectEuler._003__Largest_prime_factor
 {
     public class LargestPrimeFactorFinder
     {
-        // list to hold prime numbers up to and possibly including the input number
-        public List<ulong> ListOfPrimes { get; set; } = new List<ulong>();
-
-        public ulong FindLargestPrimeFactor(ulong numberInQuestion)
+        public static ulong FindLargestPrimeFactor(ulong numberInQuestion)
         {
-            FindPrimeFactors(numberInQuestion);
+            List<ulong> ListOfPrimes = FindPrimeFactors(numberInQuestion);
             return ListOfPrimes.Last();
         }
 
-        public List<ulong> FindPrimeFactors(ulong numberInQuestion)
+        public static List<ulong> FindPrimeFactors(ulong numberInQuestion)
         {
+            // list to hold prime numbers up to and possibly including the input number
+            List<ulong> ListOfPrimes = new List<ulong>();
+
             ulong outputNumber;
 
             if (numberInQuestion <= 1)
@@ -73,7 +73,7 @@ namespace ProjectEuler._003__Largest_prime_factor
             return ListOfPrimes; 
         }
 
-        public ulong ExtractFactor(ulong inputNumber, ulong factorToFactorOut)
+        public static ulong ExtractFactor(ulong inputNumber, ulong factorToFactorOut)
         {
             ulong outputNumber = inputNumber;
 
@@ -86,10 +86,20 @@ namespace ProjectEuler._003__Largest_prime_factor
             return outputNumber;
         }
 
-        public void PrintPrimeFactorsList(ulong number)
+        public static void PrintLargestPrimeFactor(ulong numberInQuestion)
         {
+            Console.WriteLine(@$"The largest prime factor for {numberInQuestion} is {
+                FindLargestPrimeFactor(numberInQuestion)
+                }.");
+            Console.WriteLine();
+        }
+
+        public static void PrintPrimeFactorsList(ulong numberInQuestion)
+        {
+            List<ulong> ListOfPrimes = FindPrimeFactors(numberInQuestion);
+
             int count = ListOfPrimes.Count;
-            Console.WriteLine($"The list of prime factors for {number} is:");
+            Console.WriteLine($"The list of prime factors for {numberInQuestion} is:");
             foreach (ulong primeNumber in ListOfPrimes)
             {
                 if (--count > 0)
