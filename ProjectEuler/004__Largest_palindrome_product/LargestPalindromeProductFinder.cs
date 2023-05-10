@@ -1,25 +1,46 @@
-﻿using System.Linq;
-
-namespace ProjectEuler._004__Largest_palindrome_product
+﻿namespace ProjectEuler._004__Largest_palindrome_product
 {
     public class LargestPalindromeProductFinder
     {
-        public static void LargestPalindromeProduct()
+        public static ulong LargestPalindromeProduct()
         {
-            Console.WriteLine($"The largest palindromic product of two 3-digit numbers is: {FindLargestPalindromeProduct()}");
+            Console.WriteLine("Please enter two numbers, each of which is a maximum of ten digits long.");
+            Console.WriteLine("First number: ");
+            ulong a = ReadInULong();
+            Console.WriteLine("Second number: ");
+            ulong b = ReadInULong();
+
+            Console.Write($"The largest palindromic product of two positive integers equal to or less than {a} and {b} is: ");
+            ulong c = FindLargestPalindromeProduct(a, b);
+            Console.WriteLine($"{c}");
+
+            return c;
         }
 
-        public static int FindLargestPalindromeProduct()
+        public static ulong ReadInULong()
         {
-            int a = 999;
-            int b = 999;
-            List<int> ListOfPalindromicNumbers = new();
+            ulong result;
+            bool validULong = false;
 
-            for (int i = a; i > 0; i--)
+            do
             {
-                for (int j = b; j > 0; j--)
+                string userInput = Console.ReadLine();
+                validULong = ulong.TryParse(userInput, out result);
+            } while (validULong == false);
+
+            return result;
+        }
+
+        public static ulong FindLargestPalindromeProduct(ulong a, ulong b)
+        {
+            List<ulong> ListOfPalindromicNumbers = new();
+
+            for (ulong i = a; i > 0; i--)
+            {
+                for (ulong j = b; j > 0; j--)
                 {
-                    if (IsPalindromic(i * j))
+                    if (IsPalindromic(i * j) && 
+                        !ListOfPalindromicNumbers.Contains(i * j))
                     {
                         ListOfPalindromicNumbers.Add(i * j);
                     }
@@ -29,7 +50,7 @@ namespace ProjectEuler._004__Largest_palindrome_product
             return ListOfPalindromicNumbers.Max();
         }
 
-        public static bool IsPalindromic(int numberToCheck)
+        public static bool IsPalindromic(ulong numberToCheck)
         {
             string asString = numberToCheck.ToString();
             return asString.SequenceEqual(asString.Reverse());

@@ -17,26 +17,29 @@ namespace ProjectEuler.Tests._004__Largest_palindrome_product_Tests
         public void _00__ProjectEulerExampleTest()
         {
             // arrange
-            int palindromicNumber = 9009;
+            ulong a = 99;
+            ulong b = 91;
+            ulong palindromicNumber = 9009;
 
             // act
-            //int a = LargestPalindromeProductFinder.FindLargestPalindromeProduct(palindromicNumber);
+            ulong c = LargestPalindromeProductFinder.FindLargestPalindromeProduct(a, b);
 
             // assert
-            //a.Should().Be(palindromicNumber);
+            c.Should().Be(palindromicNumber);
         }
 
-        [Test]
-        public void _01__SelfExamples()
+        [TestCase(99, 99, ExpectedResult = (ulong)9009)]
+        [TestCase(999, 999, ExpectedResult = (ulong)906609)]
+        public ulong _01__SelfExamples(int a, int b)
         {
             // arrange
-
+            // test cases are arranged above
 
             // act
-
+            ulong c = LargestPalindromeProductFinder.FindLargestPalindromeProduct((ulong)a, (ulong)b);
 
             // assert
-
+            return c;
         }
 
         [TestCase(9009, ExpectedResult = true)]
@@ -46,13 +49,13 @@ namespace ProjectEuler.Tests._004__Largest_palindrome_product_Tests
         [TestCase(91, ExpectedResult = false)]
         [TestCase(1, ExpectedResult = true)]
         [TestCase(9001009, ExpectedResult = true)]
-        public bool _03__CheckIsPalindromic(int inputNumber)
+        public bool _02__CheckIsPalindromic(int inputNumber)
         {
             // arrange
             // test cases are arranged above
 
             // act
-            bool a = LargestPalindromeProductFinder.IsPalindromic(inputNumber);
+            bool a = LargestPalindromeProductFinder.IsPalindromic((ulong)inputNumber);
 
             // assert
             return a;

@@ -47,7 +47,9 @@ namespace ConsoleAppForProjectEuler
 
         private static void Problem004()
         {
-            LargestPalindromeProductFinder.LargestPalindromeProduct();
+            ulong a = LargestPalindromeProductFinder.LargestPalindromeProduct();
+            // Answered correctly 2023.05.10
+            // Answer = 906609
         }
     }
 }
