@@ -1,6 +1,7 @@
 ﻿using ProjectEuler._001__Multiples_of_3_or_5;
 using ProjectEuler._002__Even_Fibonacci_numbers;
 using ProjectEuler._003__Largest_prime_factor;
+using ProjectEuler._004__Largest_palindrome_product;
 
 namespace ConsoleAppForProjectEuler
 {
@@ -10,7 +11,8 @@ namespace ConsoleAppForProjectEuler
         {
             // Problem001();
             // Problem002();
-            Problem003();
+            // Problem003();
+            Problem004();
         }
 
         //////////////////////////////////////////////////////////////////////
@@ -41,6 +43,11 @@ namespace ConsoleAppForProjectEuler
             LargestPrimeFactorFinder.PrintPrimeFactorsList(numberInQuestion);
             // Answered correctly 2023.04.21
             // Answer = 6857
+        }
+
+        private static void Problem004()
+        {
+            bool temp = LargestPalindromeProductFinder.IsPalindromic(9009);
         }
     }
 }

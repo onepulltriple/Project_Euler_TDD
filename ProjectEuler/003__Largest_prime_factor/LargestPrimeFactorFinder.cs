@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace ProjectEuler._003__Largest_prime_factor
+﻿namespace ProjectEuler._003__Largest_prime_factor
 {
     public class LargestPrimeFactorFinder
     {
