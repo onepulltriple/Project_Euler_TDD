@@ -47,7 +47,7 @@ namespace ConsoleAppForProjectEuler
 
         private static void Problem004()
         {
-            bool temp = LargestPalindromeProductFinder.IsPalindromic(9009);
+            LargestPalindromeProductFinder.LargestPalindromeProduct();
         }
     }
 }

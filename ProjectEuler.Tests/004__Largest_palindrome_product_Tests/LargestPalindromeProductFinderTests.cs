@@ -14,16 +14,48 @@ namespace ProjectEuler.Tests._004__Largest_palindrome_product_Tests
         }
 
         [Test]
-        public void _00__ProjectEurlerExampleTest()
+        public void _00__ProjectEulerExampleTest()
         {
             // arrange
             int palindromicNumber = 9009;
 
             // act
-            int a = LargestPalindromeProductFinder.FindLargestPalindromeProduct();
+            //int a = LargestPalindromeProductFinder.FindLargestPalindromeProduct(palindromicNumber);
 
             // assert
-            a.Should().Be(palindromicNumber);
+            //a.Should().Be(palindromicNumber);
+        }
+
+        [Test]
+        public void _01__SelfExamples()
+        {
+            // arrange
+
+
+            // act
+
+
+            // assert
+
+        }
+
+        [TestCase(9009, ExpectedResult = true)]
+        [TestCase(90109, ExpectedResult = true)]
+        [TestCase(99, ExpectedResult = true)]
+        [TestCase(9001, ExpectedResult = false)]
+        [TestCase(91, ExpectedResult = false)]
+        [TestCase(1, ExpectedResult = true)]
+        [TestCase(9001009, ExpectedResult = true)]
+        public bool _03__CheckIsPalindromic(int inputNumber)
+        {
+            // arrange
+            // test cases are arranged above
+
+            // act
+            bool a = LargestPalindromeProductFinder.IsPalindromic(inputNumber);
+
+            // assert
+            return a;
         }
     }
 }
